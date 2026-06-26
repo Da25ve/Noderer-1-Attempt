@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Karosseriebau Noderer in Volkenschwand – Ihr Fachbetrieb für Karosserie & Lack, Unfallinstandsetzung, Autoglas, HU/AU mit GTÜ, Reifen & Klimaservice." />
+  <meta name="keywords" content="Karosseriebau, Unfallinstandsetzung, Autoglas, Lackierung, Volkenschwand, Leibersdorf, GTÜ, Karosserie" />
+  <title>Karosseriebau Noderer – Ihr Fachbetrieb in Volkenschwand</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --clr-bg:        #ffffff;
+      --clr-surface:   #f4f6f8;
+      --clr-border:    #e2e6ea;
+      --clr-accent:    #1b3a6b;
+      --clr-accent-lt: #2a52a0;
+      --clr-accent-bg: #eef2f9;
+      --clr-text:      #1a1a1a;
+      --clr-muted:     #5a6272;
+      --clr-white:     #ffffff;
+      --radius:        10px;
+      --shadow-sm:     0 1px 4px rgba(0,0,0,.07);
+      --shadow-md:     0 4px 20px rgba(0,0,0,.10);
+      --shadow-lg:     0 8px 40px rgba(0,0,0,.13);
+      --transition:    .25s ease;
+      --max-w:         1160px;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--clr-text);
+      background: var(--clr-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+    ul  { list-style: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin-inline: auto;
+      padding-inline: 1.25rem;
+    }
+
+    /* ── Scroll-reveal animation ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition:
+        opacity   .6s cubic-bezier(0.22, 1, 0.36, 1),
+        transform .6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Stagger service cards */
+    .services-grid .service-card:nth-child(1) { transition-delay:  0ms; }
+    .services-grid .service-card:nth-child(2) { transition-delay: 80ms; }
+    .services-grid .service-card:nth-child(3) { transition-delay:160ms; }
+    .services-grid .service-card:nth-child(4) { transition-delay:240ms; }
+    .services-grid .service-card:nth-child(5) { transition-delay:320ms; }
+    .services-grid .service-card:nth-child(6) { transition-delay:400ms; }
+
+    /* Stagger contact cards */
+    .contact-grid .reveal:nth-child(1) { transition-delay:  0ms; }
+    .contact-grid .reveal:nth-child(2) { transition-delay:100ms; }
+    .contact-grid .reveal:nth-child(3) { transition-delay:200ms; }
+
+    /* ── Header / Nav ───────────────────────────────────────── */
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--clr-border);
+      transition: box-shadow var(--transition);
+    }
+    #header.scrolled { box-shadow: var(--shadow-md); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--clr-accent);
+      white-space: nowrap;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--clr-accent);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: .15rem;
+    }
+    .nav-links a {
+      padding: .45rem .75rem;
+      border-radius: 6px;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--clr-muted);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-links a:hover { color: var(--clr-accent); background: var(--clr-accent-bg); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .5rem 1.1rem;
+      background: var(--clr-accent);
+      color: #fff !important;
+      border-radius: 7px;
+      font-size: .875rem;
+      font-weight: 600;
+      transition: background var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--clr-accent-lt); transform: translateY(-1px); }
+
+    /* Hamburger */
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: .4rem;
+      border: none;
+      background: none;
+    }
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--clr-accent);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          105deg,
+          rgba(11, 28, 58, 0.92) 0%,
+          rgba(27, 58, 107, 0.78) 55%,
+          rgba(11, 28, 58, 0.88) 100%
+        ),
+        url('pictures/Noderer-first-pic-standing-in-front-of-shop.gif') center / cover no-repeat;
+      color: #fff;
+      padding: 5rem 0 4.5rem;
+    }
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 70% 60%, rgba(255,255,255,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Decorative diagonal strip */
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--clr-bg);
+      clip-path: polygon(0 100%, 100% 100%, 100% 0);
+    }
+
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: .35rem .85rem;
+      border-radius: 100px;
+      margin-bottom: 1.25rem;
+      color: rgba(255,255,255,.9);
+    }
+
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+    .hero-title span { color: #7fb3f5; }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.82);
+      max-width: 620px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .85rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 1.75rem;
+      background: #fff;
+      color: var(--clr-accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .95rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 1.75rem;
+      border: 2px solid rgba(255,255,255,.45);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,.15);
+      flex-wrap: wrap;
+    }
+    .hero-stat-value {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .hero-stat-label {
+      font-size: .8rem;
+      color: rgba(255,255,255,.65);
+      margin-top: .1rem;
+    }
+
+    /* Hero image card */
+    .hero-visual {
+      display: none;
+    }
+
+    /* ── Service card images ────────────────────────────────── */
+    .card-img {
+      width: calc(100% + 3.5rem);
+      margin: -1.75rem -1.75rem 1rem -1.75rem;
+      height: 150px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .45s ease;
+    }
+    .service-card:hover .card-img img { transform: scale(1.04); }
+
+    /* ── About secondary image ──────────────────────────────── */
+    .about-img-stack {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .about-img-main {
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--clr-surface);
+    }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; }
+    .about-img-secondary {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 110px;
+      background: var(--clr-surface);
+    }
+    .about-img-secondary img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    /* ── Trust bar ──────────────────────────────────────────── */
+    #trust {
+      background: var(--clr-surface);
+      border-bottom: 1px solid var(--clr-border);
+      padding: 1.5rem 0;
+    }
+    .trust-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem 2.5rem;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--clr-muted);
+    }
+    .trust-badge-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--clr-accent-bg);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .trust-badge-icon svg { width: 16px; height: 16px; stroke: var(--clr-accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .trust-sep { width: 1px; height: 28px; background: var(--clr-border); display: none; }
+
+    /* ── Section shared ─────────────────────────────────────── */
+    .section { padding: 5rem 0; }
+    .section-alt { background: var(--clr-surface); }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      background: var(--clr-accent-bg);
+      padding: .3rem .85rem;
+      border-radius: 100px;
+      margin-bottom: .9rem;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.15rem);
+      font-weight: 700;
+      color: var(--clr-text);
+      line-height: 1.25;
+      margin-bottom: .65rem;
+    }
+    .section-sub {
+      color: var(--clr-muted);
+      max-width: 560px;
+      margin-inline: auto;
+      font-size: .97rem;
+    }
+
+    /* ── Services grid ──────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    .service-card {
+      background: var(--clr-bg);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--clr-accent);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--clr-accent-bg);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .service-icon svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--clr-text);
+    }
+
+    .service-desc {
+      font-size: .9rem;
+      color: var(--clr-muted);
+      line-height: 1.65;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--clr-accent);
+      margin-top: auto;
+      padding-top: .5rem;
+      transition: gap var(--transition);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding-left: 0;
+    }
+    .service-link svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform var(--transition);
+    }
+    .service-card:hover .service-link svg { transform: translateX(3px); }
+    .service-card { cursor: pointer; }
+
+    /* ── Modal ──────────────────────────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(10, 20, 40, 0.72);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-dialog {
+      background: var(--clr-bg);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,.35);
+      transform: translateY(24px) scale(.97);
+      transition: transform .3s cubic-bezier(.34,1.3,.64,1), opacity .28s ease;
+      opacity: 0;
+    }
+    .modal-overlay.open .modal-dialog {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+      background: var(--clr-surface);
+      flex-shrink: 0;
+    }
+    .modal-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .modal-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--clr-accent-bg) 0%, #dce8f5 100%);
+    }
+    .modal-img-placeholder svg {
+      width: 64px;
+      height: 64px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: .4;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: .85rem;
+      right: .85rem;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--clr-border);
+      border-radius: 50%;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      z-index: 10;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .modal-close:hover { background: #fff; transform: scale(1.1); }
+    .modal-close svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--clr-text);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    .modal-body {
+      padding: 1.75rem 2rem 2rem;
+    }
+
+    .modal-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--clr-accent-bg);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+    }
+    .modal-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .modal-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--clr-text);
+      margin-bottom: .65rem;
+    }
+
+    .modal-desc {
+      font-size: .93rem;
+      color: var(--clr-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+
+    .modal-list {
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+      margin-bottom: 1.75rem;
+    }
+    .modal-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .9rem;
+      color: var(--clr-text);
+    }
+    .modal-list li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: var(--clr-accent-bg);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: .1rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b3a6b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: 11px 11px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .modal-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.6rem;
+      background: var(--clr-accent);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .modal-cta:hover { background: var(--clr-accent-lt); transform: translateY(-2px); }
+    .modal-cta svg { width: 15px; height: 15px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── About ──────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-content { display: flex; flex-direction: column; gap: 1.15rem; }
+
+    .about-list {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      margin-top: .5rem;
+    }
+    .about-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      font-size: .93rem;
+      color: var(--clr-muted);
+    }
+    .about-check {
+      width: 20px;
+      height: 20px;
+      background: var(--clr-accent-bg);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .about-check svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.6rem;
+      background: var(--clr-accent);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .92rem;
+      width: fit-content;
+      margin-top: .5rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .about-cta:hover { background: var(--clr-accent-lt); transform: translateY(-2px); }
+    .about-cta svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── Contact ────────────────────────────────────────────── */
+    #contact { padding: 5rem 0; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background: var(--clr-bg);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      color: var(--clr-text);
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+    .contact-card-title svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .85rem;
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--clr-border);
+    }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .contact-item-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--clr-accent-bg);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .contact-item-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--clr-accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-item-label {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--clr-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .2rem;
+    }
+    .contact-item-value {
+      font-size: .93rem;
+      font-weight: 500;
+      color: var(--clr-text);
+    }
+    .contact-item-value a { color: var(--clr-accent); }
+    .contact-item-value a:hover { text-decoration: underline; }
+
+    /* Hours table */
+    .hours-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    .hours-table tr { border-bottom: 1px solid var(--clr-border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td { padding: .6rem .25rem; vertical-align: top; }
+    .hours-table td:first-child { font-weight: 500; color: var(--clr-text); width: 45%; }
+    .hours-table td:last-child { color: var(--clr-muted); }
+    .badge-closed {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      background: #fef2f2;
+      color: #c0392b;
+      padding: .15rem .55rem;
+      border-radius: 4px;
+    }
+
+    /* Map placeholder */
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 220px;
+      background: linear-gradient(135deg, #dce5f1, #c8d5ea);
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--clr-border);
+    }
+    .map-wrap p {
+      font-size: .85rem;
+      color: var(--clr-muted);
+      text-align: center;
+    }
+    .map-wrap a {
+      color: var(--clr-accent);
+      font-weight: 600;
+    }
+    .map-wrap a:hover { text-decoration: underline; }
+
+    /* ── CTA Banner ─────────────────────────────────────────── */
+    #cta-banner {
+      background: linear-gradient(135deg, var(--clr-accent) 0%, #0f2449 100%);
+      padding: 4rem 0;
+      text-align: center;
+      color: #fff;
+    }
+    .cta-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: .75rem;
+    }
+    .cta-sub {
+      color: rgba(255,255,255,.78);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+    .btn-cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .9rem 2rem;
+      background: #fff;
+      color: var(--clr-accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,.25); }
+    .btn-cta-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .9rem 2rem;
+      border: 2px solid rgba(255,255,255,.5);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .btn-cta-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: #0d1f3c;
+      color: rgba(255,255,255,.7);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-brand-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+    .footer-brand-sub {
+      font-size: .83rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.55);
+    }
+
+    .footer-heading {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: .85rem;
+    }
+
+    .footer-links { display: flex; flex-direction: column; gap: .4rem; }
+    .footer-links a {
+      font-size: .87rem;
+      color: rgba(255,255,255,.65);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: #fff; }
+
+    .footer-contact-line {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .87rem;
+      color: rgba(255,255,255,.65);
+      margin-bottom: .45rem;
+    }
+    .footer-contact-line svg {
+      width: 14px;
+      height: 14px;
+      stroke: rgba(255,255,255,.45);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .75rem;
+      font-size: .8rem;
+      color: rgba(255,255,255,.35);
+    }
+    .footer-bottom a { color: rgba(255,255,255,.5); transition: color var(--transition); }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (min-width: 540px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .trust-sep { display: block; }
+    }
+
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .contact-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    @media (min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .nav-links { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--clr-border);
+        padding: .75rem 1.25rem 1.25rem;
+        box-shadow: var(--shadow-md);
+        gap: .15rem;
+      }
+      .nav-links.open a {
+        padding: .65rem .75rem;
+        border-radius: 8px;
+        display: block;
+      }
+      .nav-cta { font-size: .82rem; padding: .45rem .9rem; }
+      .nav-burger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
+  <header id="header" role="banner">
+    <nav class="container nav-inner" aria-label="Hauptnavigation">
+      <a href="#hero" class="nav-logo" aria-label="Karosseriebau Noderer – Startseite">
+        <img src="pictures/Noderer-logo.jpg" alt="Karosserie Fachbetrieb Logo" style="height:44px;width:auto;border-radius:6px;flex-shrink:0;" />
+        Karosseriebau Noderer
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#about">Über uns</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="tel:+4908754813" class="nav-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Jetzt anrufen
+        </a></li>
+      </ul>
+
+      <button class="nav-burger" id="navBurger" aria-expanded="false" aria-controls="navLinks" aria-label="Navigation öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="container hero-inner">
+      <div>
+        <span class="hero-tag" aria-label="Standort">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Volkenschwand · Leibersdorf
+        </span>
+
+        <h1 id="hero-heading" class="hero-title">
+          Ihr Fachbetrieb für<br />
+          <span>Karosserie &amp; Lack</span>
+        </h1>
+
+        <p class="hero-sub">
+          Professionelle Karosserie­arbeiten, Unfall­instandsetzung und Autoglas­service aus einer Hand – mit persönlichem Kontakt und höchster Qualität.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Termin vereinbaren
+          </a>
+          <a href="#services" class="btn-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            Leistungen ansehen
+          </a>
+        </div>
+
+        <div class="hero-stats" aria-label="Kennzahlen">
+          <div>
+            <div class="hero-stat-value">GTÜ</div>
+            <div class="hero-stat-label">Prüforganisation</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">6</div>
+            <div class="hero-stat-label">Servicebereiche</div>
+          </div>
+          <div>
+            <div class="hero-stat-value">Mo–Sa</div>
+            <div class="hero-stat-label">Geöffnet</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ──────────────────────────────────────────── -->
+  <section id="trust" aria-label="Zertifizierungen und Partner">
+    <div class="container trust-inner">
+      <div class="trust-badge">
+        <span class="trust-badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </span>
+        Besonders qualifizierter Innungsbetrieb
+      </div>
+
+      <div class="trust-sep" aria-hidden="true"></div>
+
+      <div class="trust-badge">
+        <span class="trust-badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        GTÜ Hauptuntersuchung vor Ort
+      </div>
+
+      <div class="trust-sep" aria-hidden="true"></div>
+
+      <div class="trust-badge">
+        <img
+          src="pictures/Noderer-autoglass-specialist-approval.jpg"
+          alt="AGS Autoglas Spezialist Partner"
+          style="height:36px;width:auto;border-radius:4px;"
+        />
+        AGS Autoglas Spezialist Partner
+      </div>
+
+      <div class="trust-sep" aria-hidden="true"></div>
+
+      <div class="trust-badge">
+        <span class="trust-badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        Alle Versicherungen &amp; Marken
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ───────────────────────────────────────────── -->
+  <section id="services" class="section section-alt" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Leistungen</span>
+        <h2 id="services-heading" class="section-title">Was wir für Sie tun</h2>
+        <p class="section-sub">Von der Karosserie­reparatur bis zur Hauptuntersuchung – alles aus einer Hand in Volkenschwand.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Card 1: Karosserie & Lack -->
+        <article class="service-card reveal" aria-labelledby="svc1-title" data-modal="svc1" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/Noderer-damged-car-with-nuts-and-bolts.jpg" alt="Karosserie und Werkzeug" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 id="svc1-title" class="service-title">Karosserie &amp; Lack</h3>
+          <p class="service-desc">Professionelle Karosserie­reparaturen und Fahrzeug­lackierungen in höchster Qualität – für alle Fahrzeugtypen und Marken.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+        <!-- Card 2: Unfallinstandsetzung -->
+        <article class="service-card reveal" aria-labelledby="svc2-title" data-modal="svc2" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/Noderer-damaged-car-big-shopname-writing.gif" alt="Unfallschaden am Fahrzeug" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3 id="svc2-title" class="service-title">Unfallinstandsetzung</h3>
+          <p class="service-desc">Kompetente Schadensregulierung mit allen Versicherungen – Haftpflicht, Teilkasko und Vollkasko. Wir kümmern uns um alles.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+        <!-- Card 3: Autoglas -->
+        <article class="service-card reveal" aria-labelledby="svc3-title" data-modal="svc3" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/Noderer-damaged-glass-and-repaired-one.jpg" alt="Autoglas Steinschlagreparatur" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3 id="svc3-title" class="service-title">Autoglas &amp; Steinschlag</h3>
+          <p class="service-desc">Windschutzscheibentausch und Steinschlagreparatur – schnell, sicher und in Zusammenarbeit mit AGS Autoglas Spezialist.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+        <!-- Card 4: HU/AU -->
+        <article class="service-card reveal" aria-labelledby="svc4-title" data-modal="svc4" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/Noderer-car-on-dyno-and-license-plate.gif" alt="Fahrzeug auf dem Prüfstand" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 id="svc4-title" class="service-title">HU / AU mit GTÜ</h3>
+          <p class="service-desc">Haupt­untersuchung und Abgas­untersuchung direkt vor Ort. Als GTÜ-Partnerbe­trieb prüfen wir Ihr Fahrzeug schnell und unkompliziert.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+        <!-- Card 5: Reifen & Felgen -->
+        <article class="service-card reveal" aria-labelledby="svc5-title" data-modal="svc5" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/Noderer-wheel-and-tire-centre-of-pic.jpg" alt="Alufelge mit Reifen" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3 id="svc5-title" class="service-title">Reifen &amp; Felgen</h3>
+          <p class="service-desc">Reifenwechsel, Wuchten, Einlagerung sowie ein umfangreiches Felgen­programm für alle Fahrzeug­klassen.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+        <!-- Card 6: Klimaservice -->
+        <article class="service-card reveal" aria-labelledby="svc6-title" data-modal="svc6" tabindex="0" role="button" aria-haspopup="dialog">
+          <div class="card-img">
+            <img src="pictures/climat-service-car-noderer.webp" alt="Klimaservice Fahrzeug" loading="lazy" />
+          </div>
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/></svg>
+          </div>
+          <h3 id="svc6-title" class="service-title">Klimaservice</h3>
+          <p class="service-desc">Befüllung, Überprüfung und Reparatur Ihrer Fahrzeug­klimaanlage – für angenehmes Fahren zu jeder Jahreszeit.</p>
+          <button class="service-link" type="button">
+            Mehr erfahren
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ──────────────────────────────────────────────── -->
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-stack reveal">
+          <div class="about-img-main">
+            <img
+              src="pictures/Noderer-pic-of-shop-wide-view.jpg"
+              alt="Karosseriebau Noderer – Außenansicht der Werkstatt in Volkenschwand"
+            />
+          </div>
+          <div class="about-img-secondary">
+            <img
+              src="pictures/Noderer-shopkeeper-with-employee.jpg"
+              alt="Stefan Noderer und Mitarbeiter in der Werkstatt"
+            />
+          </div>
+        </div>
+
+        <div class="about-content reveal">
+          <span class="section-tag" style="width:fit-content;">Über uns</span>
+          <h2 id="about-heading" class="section-title" style="text-align:left;margin-bottom:0;">Qualität &amp; Vertrauen seit Jahren</h2>
+          <p style="color:var(--clr-muted);font-size:.95rem;line-height:1.75;">
+            Karosseriebau Noderer ist ein besonders qualifizierter Innungsfach­betrieb in Volkenschwand (Leibersdorf). Unser Ziel ist es, Ihnen professionellen Service mit persönlichem Kontakt und höchster Qualität zu bieten.
+          </p>
+          <p style="color:var(--clr-muted);font-size:.95rem;line-height:1.75;">
+            Als autorisierter GTÜ-Prüf­partner und AGS Autoglas Spezialist bieten wir Ihnen alle Leistungen rund um Ihr Fahrzeug unter einem Dach – kompetent, fair und zuverlässig.
+          </p>
+
+          <ul class="about-list" aria-label="Unsere Stärken">
+            <li class="about-list-item">
+              <span class="about-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Fachbetrieb des Karosserie- und Fahrzeugbauerhandwerks
+            </li>
+            <li class="about-list-item">
+              <span class="about-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Direkte Abwicklung mit allen Kfz-Versicherungen
+            </li>
+            <li class="about-list-item">
+              <span class="about-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              GTÜ-Hauptuntersuchung &amp; Abgasuntersuchung vor Ort
+            </li>
+            <li class="about-list-item">
+              <span class="about-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Reparaturen für alle Fahrzeugmarken und -typen
+            </li>
+          </ul>
+
+          <a href="#contact" class="about-cta">
+            Kontakt aufnehmen
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ────────────────────────────────────────────── -->
+  <section id="contact" class="section section-alt" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Kontakt</span>
+        <h2 id="contact-heading" class="section-title">So erreichen Sie uns</h2>
+        <p class="section-sub">Wir freuen uns auf Ihren Anruf oder Besuch in unserer Werkstatt in Volkenschwand.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Address & Contact -->
+        <div class="contact-card reveal">
+          <h3 class="contact-card-title">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Adresse &amp; Kontakt
+          </h3>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <div class="contact-item-label">Adresse</div>
+              <div class="contact-item-value">
+                Heidersberger Weg 5<br />
+                84106 Volkenschwand (Leibersdorf)
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div>
+              <div class="contact-item-label">Telefon</div>
+              <div class="contact-item-value"><a href="tel:+4908754813">08754 813</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <div class="contact-item-label">E-Mail</div>
+              <div class="contact-item-value"><a href="mailto:stefan@karosseriebau-noderer.de">stefan@karosseriebau-noderer.de</a></div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <div>
+              <div class="contact-item-label">Webseite</div>
+              <div class="contact-item-value"><a href="http://www.stefan-noderer.de" target="_blank" rel="noopener">www.stefan-noderer.de</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opening hours -->
+        <div class="contact-card reveal">
+          <h3 class="contact-card-title">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Öffnungszeiten
+          </h3>
+          <table class="hours-table" aria-label="Öffnungszeiten">
+            <tbody>
+              <tr>
+                <td>Montag – Do.</td>
+                <td>8:00 – 12:00<br />13:00 – 18:00</td>
+              </tr>
+              <tr>
+                <td>Freitag</td>
+                <td>8:00 – 12:00<br />13:00 – 17:00</td>
+              </tr>
+              <tr>
+                <td>Samstag</td>
+                <td>9:00 – 12:00</td>
+              </tr>
+              <tr>
+                <td>Sonntag</td>
+                <td><span class="badge-closed">Geschlossen</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p style="font-size:.82rem;color:var(--clr-muted);margin-top:1.25rem;line-height:1.6;">
+            Für Termine außerhalb der regulären Öffnungszeiten sprechen Sie uns bitte direkt an.
+          </p>
+        </div>
+
+        <!-- Map -->
+        <div class="reveal">
+          <div class="map-wrap" aria-label="Karte: Standort Karosseriebau Noderer">
+            <div>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--clr-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin:0 auto .65rem;opacity:.5;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <p>
+                Heidersberger Weg 5<br />84106 Volkenschwand<br /><br />
+                <a href="https://www.google.com/maps/search/Heidersberger+Weg+5+84106+Volkenschwand" target="_blank" rel="noopener">
+                  In Google Maps öffnen →
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BANNER ─────────────────────────────────────────── -->
+  <section id="cta-banner" aria-labelledby="cta-heading">
+    <div class="container">
+      <h2 id="cta-heading" class="cta-title reveal">Bereit für Ihren Termin?</h2>
+      <p class="cta-sub reveal">Rufen Sie uns an oder schreiben Sie uns eine E-Mail – wir sind Mo.–Fr. für Sie da.</p>
+      <div class="cta-actions reveal">
+        <a href="tel:+4908754813" class="btn-cta-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          08754 813 anrufen
+        </a>
+        <a href="mailto:stefan@karosseriebau-noderer.de" class="btn-cta-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          E-Mail schreiben
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-brand-name">Karosseriebau Noderer</div>
+          <p class="footer-brand-sub">
+            Ihr Fachbetrieb für Karosserie, Lack &amp; mehr in Volkenschwand (Leibersdorf), Bayern.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Navigation</div>
+          <ul class="footer-links" role="list">
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#trust">Zertifizierungen</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Kontakt</div>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Heidersberger Weg 5, 84106 Volkenschwand
+          </div>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+4908754813" style="color:rgba(255,255,255,.65);transition:color .25s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">08754 813</a>
+          </div>
+          <div class="footer-contact-line">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:stefan@karosseriebau-noderer.de" style="color:rgba(255,255,255,.65);transition:color .25s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">stefan@karosseriebau-noderer.de</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Karosseriebau Noderer · Stefan Noderer</span>
+        <span>
+          <a href="#">Impressum</a> &nbsp;·&nbsp;
+          <a href="#">Datenschutz</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── SERVICE MODAL ────────────────────────────────────── -->
+  <div id="serviceModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-dialog" id="modalDialog">
+      <button class="modal-close" id="modalClose" aria-label="Schließen">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-img" id="modalImgWrap"></div>
+      <div class="modal-body">
+        <div class="modal-icon" id="modalIcon"></div>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <ul class="modal-list" id="modalList"></ul>
+        <a href="#contact" class="modal-cta" id="modalCta">
+          Jetzt anfragen
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── JS ────────────────────────────────────────────────── -->
+  <script>
+    // ── Always start at top on refresh ─────────────────────
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+
+    // ── Smooth scroll ───────────────────────────────────────
+    function smoothScrollTo(target, duration = 820) {
+      const start = window.scrollY;
+      const end   = target.getBoundingClientRect().top + start - document.getElementById('header').offsetHeight - 12;
+      const diff  = end - start;
+      let startTime = null;
+
+      function ease(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function step(now) {
+        if (!startTime) startTime = now;
+        const elapsed  = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + diff * ease(progress));
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      const id = link.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      smoothScrollTo(el);
+    });
+
+    // ── Sticky header ───────────────────────────────────────
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── Mobile nav ──────────────────────────────────────────
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      burger.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Fade-in on scroll ───────────────────────────────────
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ── Service modal data ──────────────────────────────────
+    const SERVICES = {
+      svc1: {
+        title: 'Karosserie & Lack',
+        img: 'pictures/Noderer-damged-car-with-nuts-and-bolts.jpg',
+        imgAlt: 'Karosserie und Werkzeug',
+        iconSvg: '<svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+        desc: 'Als besonders qualifizierter Karosserie-Fachbetrieb führen wir alle Arbeiten rund um Karosserie und Lackierung durch – von der kleinen Delle bis zur hochwertigen Neulackierung in Originalfarbe.',
+        list: [
+          'Dellen- und Blechschadenreparatur',
+          'Fahrzeuglackierungen (Teil- und Vollackierung)',
+          'Smart Repair – Kleinschäden schnell behoben',
+          'Beilackierungen und präzise Farbtonabstimmung',
+          'Rost- und Korrosionsschutzbehandlung',
+          'Alle Marken und Fahrzeugtypen'
+        ]
+      },
+      svc2: {
+        title: 'Unfallinstandsetzung',
+        img: 'pictures/Noderer-damaged-car-big-shopname-writing.gif',
+        imgAlt: 'Unfallschaden am Fahrzeug',
+        iconSvg: '<svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+        desc: 'Nach einem Unfall kümmern wir uns um alles – von der Schadensaufnahme über die Koordination mit Gutachtern bis zur vollständigen Instandsetzung Ihres Fahrzeugs. Wir arbeiten direkt mit allen Versicherungen zusammen.',
+        list: [
+          'Abwicklung mit Haftpflicht, Teilkasko und Vollkasko',
+          'Koordination mit Kfz-Sachverständigen und Gutachtern',
+          'Mietwagenvermittlung während der Reparatur',
+          'Karosserie- und Lackarbeiten nach Unfall',
+          'Rahmen- und Richtarbeiten',
+          'Lückenlose Dokumentation für Versicherungen'
+        ]
+      },
+      svc3: {
+        title: 'Autoglas & Steinschlag',
+        img: 'pictures/Noderer-damaged-glass-and-repaired-one.jpg',
+        imgAlt: 'Autoglas Steinschlagreparatur',
+        iconSvg: '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>',
+        desc: 'Als offizieller AGS Autoglas Spezialist Partner bieten wir schnellen und professionellen Autoglasservice – vom Steinschlag bis zum kompletten Scheibentausch, oft direkt über Ihre Versicherung abgerechnet.',
+        list: [
+          'Steinschlagreparatur – meist ohne Aufpreis über Kasko',
+          'Windschutzscheibentausch in Originalqualität',
+          'Seiten- und Heckscheibentausch',
+          'Direktabrechnung mit allen Kfz-Versicherungen',
+          'Zugelassene Ersatzgläser nach OEM-Standard',
+          'Schnelle Terminvergabe – oft noch am selben Tag'
+        ]
+      },
+      svc4: {
+        title: 'HU / AU mit GTÜ',
+        img: 'pictures/Noderer-car-on-dyno-and-license-plate.gif',
+        imgAlt: 'Fahrzeug auf dem Prüfstand',
+        iconSvg: '<svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+        desc: 'Als GTÜ-Partnerbetrieb führen wir Hauptuntersuchung und Abgasuntersuchung direkt vor Ort durch – kein extra Weg zur Prüfstelle nötig. Festgestellte Mängel können wir oft sofort beheben.',
+        list: [
+          'Hauptuntersuchung (HU) nach §29 StVZO',
+          'Abgasuntersuchung (AU)',
+          'Gültig für Pkw, Lkw und Motorräder',
+          'Prüfung und Mängelbeseitigung in einem',
+          'Plakettenvergabe direkt vor Ort',
+          'Flexible Terminvereinbarung Mo–Sa'
+        ]
+      },
+      svc5: {
+        title: 'Reifen & Felgen',
+        img: 'pictures/Noderer-wheel-and-tire-centre-of-pic.jpg',
+        imgAlt: 'Alufelge mit Reifen',
+        iconSvg: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>',
+        desc: 'Von der saisonalen Umrüstung bis zum neuen Felgensatz – wir bieten Ihnen einen umfassenden Reifen- und Felgenservice für alle Fahrzeugtypen und Reifengrößen.',
+        list: [
+          'Sommer- und Winterreifenwechsel',
+          'Auswuchten für ruhigen Geradeauslauf',
+          'Saisonale Reifeneinlagerung',
+          'Neue Bereifung in allen gängigen Größen',
+          'Alufelgen und Stahlfelgen im Programm',
+          'Reifenreparatur (sofern technisch möglich)'
+        ]
+      },
+      svc6: {
+        title: 'Klimaservice',
+        img: 'pictures/climat-service-car-noderer.webp',
+        imgAlt: 'Klimaservice Fahrzeug',
+        iconSvg: '<svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93 4.93 19.07"/></svg>',
+        desc: 'Eine regelmäßige Klimawartung verlängert die Lebensdauer Ihrer Anlage und sorgt für frische, saubere Luft im Fahrzeuginnenraum – besonders empfehlenswert vor der Sommersaison.',
+        list: [
+          'Kältemittelbefüllung (R134a und R1234yf)',
+          'Dichtigkeitsprüfung der Klimaanlage',
+          'UV-Kontrastmittel-Lecksuche',
+          'Klimaanlagen-Desinfektion und Geruchsbeseitigung',
+          'Filterinspektion und -wechsel',
+          'Alle Fahrzeugtypen und Baujahre'
+        ]
+      }
+    };
+
+    // ── Modal logic ─────────────────────────────────────────
+    const overlay  = document.getElementById('serviceModal');
+    const closeBtn = document.getElementById('modalClose');
+    const ctaBtn   = document.getElementById('modalCta');
+    let lastFocused = null;
+
+    function openModal(id) {
+      const data = SERVICES[id];
+      if (!data) return;
+
+      // Image
+      const imgWrap = document.getElementById('modalImgWrap');
+      if (data.img) {
+        imgWrap.innerHTML = `<img src="${data.img}" alt="${data.imgAlt}" />`;
+        imgWrap.style.display = 'block';
+      } else {
+        imgWrap.innerHTML = `<div class="modal-img-placeholder">${data.iconSvg}</div>`;
+        imgWrap.style.display = 'block';
+      }
+
+      // Icon, title, desc
+      document.getElementById('modalIcon').innerHTML = data.iconSvg;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalDesc').textContent = data.desc;
+
+      // List
+      const list = document.getElementById('modalList');
+      list.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
+
+      // Open
+      lastFocused = document.activeElement;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    // Card clicks (whole card + button)
+    document.querySelectorAll('.service-card[data-modal]').forEach(card => {
+      card.addEventListener('click', () => openModal(card.dataset.modal));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card.dataset.modal); }
+      });
+    });
+
+    // Close triggers
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
+
+    // Close modal then scroll to contact
+    ctaBtn.addEventListener('click', closeModal);
+  </script>
+
+</body>
+</html>
